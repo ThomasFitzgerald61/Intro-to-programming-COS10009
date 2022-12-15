@@ -1,0 +1,11 @@
+{
+    "editor.formatOnSave": true,
+    "editor.fontWeight": "normal",
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "[ruby]": { // or [erb] / [gemfile]
+        "editor.formatOnSave": true,
+        "editor.defaultFormatter": "mbessey.vscode-rufo"
+    },
+    "editor.formatOnType": true,
+    "editor.formatOnPaste": true
+}
