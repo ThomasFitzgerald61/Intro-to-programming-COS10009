@@ -16,32 +16,31 @@ class GameWindow < Gosu::Window
   # and a caption. It also sets up any variables to be used.
   # This is procedure i.e the return value is 'undefined'
   def initialize
-    super(200, 135, false)
+    super 200, 135, false
     self.caption = "Gosu Cycle Example"
-
     @shape_x = 0
     # Create and load an image to display
     @background_image = Gosu::Image.new("media/earth.png")
 
     # Create and load a font for drawing text on the screen
-    font = Gosu::Font.new(20)
+    @font = Gosu::Font.new(20)
     @cycle = 0
-    puts("0. In initialize\n")
+    puts "0. In initialize\n"
   end
 
   # Put any work you want done in update
   # This is a procedure i.e the return value is 'undefined'
   def update
-  	puts("1. In update. Sleeping for one second\n")
+  	puts "1. In update. Sleeping for one second\n"
     @cycle += 1 # add one to the current value of cycle
-    @shape_x += 10
     sleep(1)
+    @shape_x +=10
   end
 
   # the following method is called when you press a mouse
   # button or key
   def button_down(id)
-    puts("In Button Down " + id.to_s)
+    puts "In Button Down " + id.to_s
   end
 
   # Draw (or Redraw) the window
@@ -50,14 +49,11 @@ class GameWindow < Gosu::Window
     # Draws an image with an x, y and z
     #(z determines if it sits on or under other things that are drawn)
     @background_image.draw(0, 0, z = ZOrder::BACKGROUND)
-    @font.draw_text("Cycle count: #{@cycle}", 10, 10, z = ZOrder::TOP, 1.0, 1.0, Gosu::Color::BLACK)
-    Gosu.draw_rect(@shape_x, @shape_y, 50, 50, Gosu::Color::RED, ZOrder::TOP, mode=:default)
-    puts("2. In draw\n")
+    @font.draw("Cycle count: #{@cycle}", 10, 10, z = ZOrder::TOP, 1.0, 1.0, Gosu::Color::BLACK)
+    puts "2. In draw\n"
+    Gosu.draw_rect(@shape_x, 30, 100, 50, Gosu::Color::BLACK, ZOrder::TOP, mode=:default)
   end
 end
-
-window = GameWindow.new
-window.show
 
 window = GameWindow.new
 window.show
