@@ -1,3 +1,4 @@
+#maze_creation.rb
 require 'gosu'
 
 module ZOrder
@@ -123,20 +124,6 @@ class GameWindow < Gosu::Window
       # cells such as vacant, visited and on_path.
       # Cells on the outer boundaries will always have a nil on the
       # boundary side
-
-      if (column_index == 0)
-        cell.west = nil
-      else
-        cell.west = @columns[column_index - 1][row_index]
-      end
-
-      if (column_index == (x_cell_count - 1))
-        cell.west = nil
-      else
-        cell.west = @columns[column_index - 1][row_index]
-      end
-
-
 
       # pick one of the possible paths that is not nil (if any):
       if (north_path != nil)
